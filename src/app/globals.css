@@ -1,26 +1,100 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --base-light: #f4f5ff;
+  --base-dark: #110c24;
+  --foreground-light: #151026;
+  --foreground-dark: #f3f1ff;
+  --primary-50: #f4f0ff;
+  --primary-100: #e5dbff;
+  --primary-500: #7a5cff;
+  --primary-600: #6248f2;
+  --primary-700: #4c34d0;
+  --muted-100: #dadef5;
+  --muted-200: #c9cfeb;
+  --muted-700: #413a67;
+  --muted-800: #2f2950;
+  --shadow-color: rgba(56, 44, 111, 0.35);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--base-light);
+  color: var(--foreground-light);
+  font-family: var(--font-geist-sans), "Inter", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
 }
+
+body.dark {
+  background: var(--base-dark);
+  color: var(--foreground-dark);
+}
+
+body.dark .bg-base {
+  background: color-mix(in srgb, var(--base-dark) 96%, #1a1332 4%);
+}
+
+body.dark .text-foreground {
+  color: var(--foreground-dark);
+}
+
+@layer utilities {
+  .bg-base {
+    background: var(--base-light);
+  }
+  .text-foreground {
+    color: var(--foreground-light);
+  }
+  .text-muted-700 {
+    color: var(--muted-700);
+  }
+  .text-muted-800 {
+    color: var(--muted-800);
+  }
+  .text-muted-200 {
+    color: rgba(228, 223, 255, 0.75);
+  }
+  .text-primary-900 {
+    color: #1f1960;
+  }
+  .text-primary-100 {
+    color: var(--primary-100);
+  }
+  .from-primary-500 {
+    --tw-gradient-from: var(--primary-500);
+  }
+  .via-primary-600 {
+    --tw-gradient-stops: var(--tw-gradient-from), var(--primary-600), var(--tw-gradient-to, transparent);
+  }
+  .to-primary-700 {
+    --tw-gradient-to: var(--primary-700);
+  }
+}
+
+main {
+  background: radial-gradient(circle at top left, rgba(122, 92, 255, 0.12), transparent 52%),
+    radial-gradient(circle at bottom right, rgba(98, 72, 240, 0.09), transparent 55%),
+    var(--base-light);
+}
+
+body.dark main {
+  background: radial-gradient(circle at top left, rgba(98, 72, 240, 0.25), transparent 48%),
+    radial-gradient(circle at bottom right, rgba(75, 56, 161, 0.18), transparent 60%),
+    var(--base-dark);
+}
+
+::selection {
+  background: rgba(122, 92, 255, 0.35);
+  color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+@keyframes pulse { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
