@@ -15,9 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Respira.ai — Respiração guiada para momentos de calma",
-  description:
-    "Escolha técnicas comprovadas, conduza sessões guiadas e acompanhe o progresso da sua respiração consciente.",
+  title: "Respira.ai â€” respiraÃ§Ã£o guiada para momentos de calma",
+  description: "Escolha tÃ©cnicas comprovadas, conduza sessÃµes guiadas e acompanhe o progresso da sua respiraÃ§Ã£o consciente.",
 };
 
 export default function RootLayout({
@@ -26,12 +25,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-base text-foreground antialiased`}
-      >
+    <html lang="pt-BR" suppressHydrationWarning>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-base text-foreground`}>
         <div className="flex min-h-screen flex-col">
-          <header className="sticky top-0 z-30 w-full border-b border-white/10 bg-base/80 backdrop-blur-sm dark:border-white/5">
+          <header className="sticky top-0 z-30 w-full border-b border-white/10 bg-base/85 backdrop-blur-sm dark:border-white/10">
             <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-5 md:px-10">
               <Link
                 href="/"
@@ -44,28 +41,16 @@ export default function RootLayout({
               </Link>
 
               <nav className="hidden items-center gap-6 text-sm font-medium text-muted-800 dark:text-muted-200 md:flex">
-                <Link
-                  className="hover:text-primary-700 dark:hover:text-primary-200"
-                  href="#features"
-                >
-                  Técnicas
+                <Link className="hover:text-primary-700 dark:hover:text-primary-200" href="#features">
+                  TÃ©cnicas
                 </Link>
-                <Link
-                  className="hover:text-primary-700 dark:hover:text-primary-200"
-                  href="#workflow"
-                >
+                <Link className="hover:text-primary-700 dark:hover:text-primary-200" href="#workflow">
                   Como funciona
                 </Link>
-                <Link
-                  className="hover:text-primary-700 dark:hover:text-primary-200"
-                  href="#testimonials"
-                >
+                <Link className="hover:text-primary-700 dark:hover:text-primary-200" href="#testimonials">
                   Depoimentos
                 </Link>
-                <Link
-                  className="hover:text-primary-700 dark:hover:text-primary-200"
-                  href="#pricing"
-                >
+                <Link className="hover:text-primary-700 dark:hover:text-primary-200" href="#pricing">
                   Planos
                 </Link>
               </nav>
@@ -95,7 +80,7 @@ export default function RootLayout({
                   href="#features"
                   className="hidden rounded-full bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700 px-5 py-2 text-sm font-semibold text-white shadow-[0_20px_50px_-25px_rgba(78,58,186,0.6)] transition hover:scale-[1.02] md:inline-flex"
                 >
-                  Explorar técnicas
+                  Explorar tÃ©cnicas
                 </Link>
               </div>
             </div>
@@ -105,22 +90,13 @@ export default function RootLayout({
 
           <footer className="border-t border-white/10 bg-base/80 backdrop-blur-sm">
             <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-6 py-8 text-sm text-muted-700 dark:text-muted-300 md:flex-row md:items-center md:justify-between md:px-10">
-              <p>
-                © {new Date().getFullYear()} Respira.ai. Respire com consciência
-                todos os dias.
-              </p>
+              <p>Â© {new Date().getFullYear()} Respira.ai. Respire com consciÃªncia todos os dias.</p>
               <div className="flex items-center gap-6">
-                <Link
-                  href="#pricing"
-                  className="hover:text-primary-700 dark:hover:text-primary-200"
-                >
+                <Link href="#pricing" className="hover:text-primary-700 dark:hover:text-primary-200">
                   Planos
                 </Link>
-                <Link
-                  href="#settings"
-                  className="hover:text-primary-700 dark:hover:text-primary-200"
-                >
-                  Preferências
+                <Link href="#settings" className="hover:text-primary-700 dark:hover:text-primary-200">
+                  PreferÃªncias
                 </Link>
               </div>
             </div>
@@ -128,27 +104,28 @@ export default function RootLayout({
         </div>
 
         <script
+          suppressHydrationWarning
           dangerouslySetInnerHTML={{
             __html: `
               (function () {
                 if (typeof window === "undefined") return;
-                const stored = localStorage.getItem("respiraai-theme");
+                const storageKey = "respiraai-theme";
+                const stored = localStorage.getItem(storageKey);
                 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
                 const theme = stored ?? (prefersDark ? "dark" : "light");
                 document.body.dataset.theme = theme;
                 document.body.classList.toggle("dark", theme === "dark");
-
                 const icon = document.getElementById("icon-theme");
                 if (theme === "dark" && icon) icon.classList.add("is-dark");
-
                 const toggle = document.getElementById("theme-toggle");
                 if (!toggle) return;
                 toggle.addEventListener("click", () => {
-                  const current = document.body.dataset.theme === "dark" ? "light" : "dark";
-                  document.body.dataset.theme = current;
-                  document.body.classList.toggle("dark", current === "dark");
-                  localStorage.setItem("respiraai-theme", current);
-                  if (icon) icon.classList.toggle("is-dark", current === "dark");
+                  const nextTheme = document.body.dataset.theme === "dark" ? "light" : "dark";
+                  document.body.dataset.theme = nextTheme;
+                  document.body.classList.toggle("dark", nextTheme === "dark");
+                  localStorage.setItem(storageKey, nextTheme);
+                  const iconRef = document.getElementById("icon-theme");
+                  if (iconRef) iconRef.classList.toggle("is-dark", nextTheme === "dark");
                 });
               })();
             `,
