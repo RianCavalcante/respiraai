@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -15,8 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Respira.ai — respiração guiada para momentos de calma",
-  description: "Escolha técnicas comprovadas, conduza sessões guiadas e acompanhe o progresso da sua respiração consciente.",
+  title: "Respira.ai - respiracao guiada para momentos de calma",
+  description:
+    "Escolha tecnicas comprovadas, conduza sessoes guiadas e acompanhe o progresso da sua respiracao consciente.",
 };
 
 export default function RootLayout({
@@ -42,7 +43,7 @@ export default function RootLayout({
 
               <nav className="hidden items-center gap-6 text-sm font-medium text-muted-800 dark:text-muted-200 md:flex">
                 <Link className="hover:text-primary-700 dark:hover:text-primary-200" href="#features">
-                  Técnicas
+                  Tecnicas
                 </Link>
                 <Link className="hover:text-primary-700 dark:hover:text-primary-200" href="#workflow">
                   Como funciona
@@ -80,7 +81,7 @@ export default function RootLayout({
                   href="#features"
                   className="hidden rounded-full bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700 px-5 py-2 text-sm font-semibold text-white shadow-[0_20px_50px_-25px_rgba(78,58,186,0.6)] transition hover:scale-[1.02] md:inline-flex"
                 >
-                  Explorar técnicas
+                  Explorar tecnicas
                 </Link>
               </div>
             </div>
@@ -90,13 +91,13 @@ export default function RootLayout({
 
           <footer className="border-t border-white/10 bg-base/80 backdrop-blur-sm">
             <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-6 py-8 text-sm text-muted-700 dark:text-muted-300 md:flex-row md:items-center md:justify-between md:px-10">
-              <p>© {new Date().getFullYear()} Respira.ai. Respire com consciência todos os dias.</p>
+              <p>&copy; {new Date().getFullYear()} Respira.ai. Respire com consciencia todos os dias.</p>
               <div className="flex items-center gap-6">
                 <Link href="#pricing" className="hover:text-primary-700 dark:hover:text-primary-200">
                   Planos
                 </Link>
                 <Link href="#settings" className="hover:text-primary-700 dark:hover:text-primary-200">
-                  Preferências
+                  Preferencias
                 </Link>
               </div>
             </div>

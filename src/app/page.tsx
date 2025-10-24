@@ -1,26 +1,26 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 const highlights = [
-  { label: "Técnicas guiadas", value: "4" },
-  { label: "Tempo médio", value: "5 min" },
-  { label: "Sessões concluídas", value: "12k+" },
+  { label: "Tecnicas guiadas", value: "4" },
+  { label: "Tempo medio", value: "5 min" },
+  { label: "Sessoes concluidas", value: "12k+" },
 ];
 
 const featureItems = [
   {
     title: "Visualizador gentil",
     description:
-      "Animações suaves sincronizadas com inspiração, retenção e expiração para manter o foco e o ritmo.",
+      "Animacoes suaves sincronizadas com inspiracao, retencao e expiracao para manter o foco e o ritmo.",
   },
   {
-    title: "Biblioteca de técnicas",
+    title: "Biblioteca de tecnicas",
     description:
-      "Protocolos 4-7-8, 5-5-5, Box Breathing e Wim Hof em português, com instruções claras e acessíveis.",
+      "Protocolos 4-7-8, 5-5-5, Box Breathing e Wim Hof em portugues, com instrucoes claras e acessiveis.",
   },
   {
-    title: "Histórico e jornada",
+    title: "Historico e jornada",
     description:
-      "Resumo das sessões, streaks automáticos e recomendações para manter a prática constante.",
+      "Resumo das sessoes, streaks automaticos e recomendacoes para manter a pratica constante.",
   },
 ];
 
@@ -34,23 +34,23 @@ export default function Home() {
               Respira.ai
             </span>
             <h1 className="text-4xl font-semibold tracking-tight text-primary-900 sm:text-5xl dark:text-white">
-              Respiração guiada para momentos de calma
+              Respiracao guiada para momentos de calma
             </h1>
             <p className="text-lg text-muted-800 dark:text-muted-200">
-              Escolha técnicas comprovadas, siga instruções visuais suaves e acompanhe o seu progresso em português.
+              Escolha tecnicas comprovadas, siga instrucoes visuais suaves e acompanhe o seu progresso em portugues.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <Link
                 href="#features"
                 className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700 px-7 py-3 text-sm font-semibold text-white shadow-[0_20px_45px_-25px_rgba(78,58,186,0.65)] transition hover:scale-[1.02]"
               >
-                Explorar técnicas
+                Explorar tecnicas
               </Link>
               <Link
                 href="/progresso"
                 className="inline-flex items-center justify-center rounded-full border border-primary-500/40 px-7 py-3 text-sm font-semibold text-primary-700 transition hover:bg-primary-500/10 dark:border-primary-200/30 dark:text-primary-100"
               >
-                Ver histórico
+                Ver historico
               </Link>
             </div>
           </div>
