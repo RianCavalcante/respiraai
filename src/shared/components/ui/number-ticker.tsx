@@ -35,5 +35,10 @@ export function NumberTicker({ value, duration = 1200, className, suffix = "" }:
     };
   }, [value, duration]);
 
-  return <span className={className}>{displayValue.toLocaleString("pt-BR")}{suffix}</span>;
+  return (
+    <span className={className}>
+      {displayValue.toLocaleString("pt-BR")}
+      {suffix}
+    </span>
+  );
 }
