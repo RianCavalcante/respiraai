@@ -1,11 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ComponentPropsWithRef, forwardRef } from "react";
+import { HTMLMotionProps, motion } from "framer-motion";
+import { ReactNode, forwardRef } from "react";
 import { cn } from "@/shared/utils/cn";
 
-interface ShineBorderProps extends ComponentPropsWithRef<"button"> {
+interface ShineBorderProps extends HTMLMotionProps<"button"> {
   active?: boolean;
+  children: ReactNode;
 }
 
 export const ShineBorder = forwardRef<HTMLButtonElement, ShineBorderProps>(
